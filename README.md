@@ -1,77 +1,81 @@
-# AI & Analytics Portfolio
+# AI & Analytics Lab
 
-This repository is a centralized portfolio of applied AI, machine learning, data analytics, and SQL work. It combines notebook-based case studies, Udacity deep learning projects, computer vision pipelines, NLP models, deployment exercises, and SQL analytics assignments.
+A portfolio and learning archive covering artificial intelligence, machine learning, deep learning, computer vision, natural language processing, data analytics, MLOps, and SQL.
 
-## Repository Overview
+The repository combines completed projects with the coursework, assignments, certificates, datasets, and reference material that supported them. It is organized as an archive of independent notebooks and projects rather than a single installable application.
 
-| Area | Folder | Focus |
+## Repository map
+
+| Directory | Description |
+| --- | --- |
+| [`Projects/`](Projects/) | Applied portfolio work: 10 Udacity projects, 10 DataCamp case studies, and a 9-module SQL learning track. See the [project catalog](Projects/README.md). |
+| [`Courses/`](Courses/) | Course notebooks, assignments, certificates, and reference material from Coursera, DeepLearning.AI, Udacity, and DataCamp. See the [course catalog](Courses/README.md). |
+
+```text
+Mayank-AI-Lab/
+├── Courses/
+│   ├── Coursera/
+│   ├── DeepLearning.AI/
+│   ├── datacamp/
+│   ├── datascience_Cheat_Sheets/
+│   ├── others/
+│   └── udacity/
+├── Projects/
+│   ├── DataCampProjects/
+│   ├── NamasteSQL/
+│   └── UdacityProjects/
+├── LICENSE
+└── README.md
+```
+
+## Featured work
+
+| Project | Area | Highlights |
 | --- | --- | --- |
-| Udacity projects | [UdacityProjects](UdacityProjects) | Deep learning, computer vision, NLP, model deployment, medical imaging, and SLAM |
-| DataCamp projects | [DataCampProjects](DataCampProjects) | Exploratory data analysis, visualization, pandas workflows, and applied analytics case studies |
-| SQL practice | [NamasteSQL](NamasteSQL) | SQL fundamentals, analytical SQL, joins, CTEs, window functions, stored procedures, indexes, and portfolio queries |
+| [Automatic Image Captioning](Projects/UdacityProjects/Project%20-%20Automatic%20Image%20Captioning/) | Computer vision and NLP | CNN encoder, RNN decoder, MS COCO data, training and inference notebooks, saved checkpoints |
+| [Pneumonia Detection from Chest X-Rays](Projects/UdacityProjects/Project%20-%20Pneumonia%20Detection%20from%20Chest%20X-Rays/) | Medical imaging | DICOM exploration, Keras classification, threshold evaluation, inference pipeline, FDA-style report |
+| [Facial Keypoint Detection](Projects/UdacityProjects/Project%20-%20Facial%20Key%20Point%20Detection/) | Computer vision | PyTorch CNN regression, image augmentation, Haar cascades, end-to-end face processing |
+| [Deploying a Sentiment Analysis Model](Projects/UdacityProjects/Project-%20Deploying%20Sentiment%20Analysis%20Model/) | NLP and deployment | PyTorch LSTM, SageMaker training and serving code, inference handlers, web client |
+| [Object Tracking and Localization](Projects/UdacityProjects/Project%20-%20Object%20Tracking%20and%20Localization/) | Robotics | Robot motion and sensing, landmark constraints, Graph SLAM |
+| [Credit Card Transactions Analysis](Projects/NamasteSQL/all_projects/) | SQL analytics | Business-oriented queries using aggregation, ranking, window functions, and cumulative metrics |
 
-## Udacity Projects
+Additional work includes neural style transfer, dog breed classification, TV script generation, bike-sharing demand prediction, sentiment classification, public dataset analysis, and a structured collection of advanced SQL exercises.
 
-| Project | What it does | Main techniques and artifacts |
-| --- | --- | --- |
-| [Automatic Image Captioning](UdacityProjects/Project%20-%20Automatic%20Image%20Captioning) | Builds a CNN-RNN pipeline that learns to generate captions for images from the MS COCO dataset. | PyTorch, torchvision, COCO API, vocabulary building, `EncoderCNN`, `DecoderRNN`, training and inference notebooks, saved encoder/decoder checkpoints |
-| [Bike Sharing Prediction](UdacityProjects/Project%20-%20Bike%20sharing%20prediction) | Predicts bike rental ridership from historical bike sharing data. | NumPy neural network implementation, pandas preprocessing, categorical encoding, feature scaling, train/validation/test workflow |
-| [Dog Breed Classifier](UdacityProjects/Project%20-%20Dog%20Breed%20Classifier) | Implements a dog identification app workflow that detects humans/dogs and predicts dog breeds. | CNN concepts, OpenCV Haar cascades, image preprocessing, transfer learning workflow in notebook form |
-| [Facial Key Point Detection](UdacityProjects/Project%20-%20Facial%20Key%20Point%20Detection) | Trains a convolutional neural network to locate facial keypoints and applies them in an end-to-end face pipeline. | PyTorch, custom `Dataset`, image transforms, CNN model in `models.py`, Haar cascade detectors, saved model checkpoint, optional face filter notebook |
-| [Image Style Transfer](UdacityProjects/Project%20-%20Image%20Style%20Transfer) | Recreates neural style transfer using deep image features. | PyTorch, VGG19 feature extraction, content/style loss, optimization-based image generation, Gatys paper reference |
-| [Object Tracking and Localization](UdacityProjects/Project%20-%20Object%20Tracking%20and%20Localization) | Implements robot sensing, motion, landmark detection, and Graph SLAM in a 2D world. | SLAM, omega/xi constraints, robot simulation, motion and measurement noise, helper visualization code |
-| [Pneumonia Detection from Chest X-Rays](UdacityProjects/Project%20-%20Pneumonia%20Detection%20from%20Chest%20X-Rays) | Explores chest X-ray metadata, trains a pneumonia classification model, and prepares inference/FDA-style documentation. | Keras, image augmentation, DICOM handling, pydicom, EDA notebook, training notebook, inference notebook, sample DICOM files, FDA submission materials |
-| [Sentimental Analysis](UdacityProjects/Project%20-%20Sentimental%20Analysis) | Frames sentiment classification as a neural network problem using review text and labels. | NLP preprocessing, word counts, sentiment ratios, NumPy-based learning workflow |
-| [Deploying Sentiment Analysis Model](UdacityProjects/Project-%20Deploying%20Sentiment%20Analysis%20Model) | Builds and deploys a sentiment analysis web app backed by a PyTorch LSTM model on SageMaker. | PyTorch LSTM, SageMaker training and serving scripts, inference handlers, text cleaning utilities, HTML front end, deployment diagram |
-| [TV Script Generation](UdacityProjects/Project-%20TV%20Script%20Generation) | Generates Seinfeld-style TV scripts from dialogue data. | Recurrent neural networks, sequence modeling, token lookup tables, PyTorch checkpoint, generated script output |
+## Technical coverage
 
-## DataCamp Projects
+- **Languages:** Python and SQL
+- **Data analysis:** pandas, NumPy, SciPy, Matplotlib, seaborn, scikit-learn, and Dask
+- **Deep learning:** PyTorch, torchvision, TensorFlow, and Keras
+- **Computer vision:** OpenCV, CNNs, transfer learning, image captioning, keypoint detection, medical imaging, and style transfer
+- **NLP and generative AI:** RNNs, LSTMs, Transformers, Hugging Face libraries, LangChain, fine-tuning, and prompt engineering
+- **Deployment and MLOps:** Amazon SageMaker, Docker, MLflow, model serving, and simple web interfaces
+- **Databases:** joins, CTEs, window functions, stored procedures, functions, indexes, SQL analytics, MongoDB, and NoSQL concepts
 
-| Project | What it analyzes | Data and skills demonstrated |
-| --- | --- | --- |
-| [A Visual History of Nobel Prize Winners](DataCampProjects/A%20Visual%20History%20of%20Nobel%20Prize%20Winners) | Nobel Prize winners across year, category, country, gender, organization, and laureate attributes. | Historical EDA, grouped summaries, trend analysis, visualization-ready Nobel dataset |
-| [Analyzing Netflix Data](DataCampProjects/Analyzing%20Netflix%20Data) | Netflix titles by type, release year, country, duration, genre, and metadata. | pandas filtering, content catalog analysis, movie/TV comparison, exploratory visualization |
-| [Analyzing TV Data](DataCampProjects/Analyzing%20TV%20Data) | Super Bowl TV viewership, advertising cost, game outcomes, and halftime musicians. | Joins across multiple CSVs, sports/media analytics, viewer and ad-cost trends |
-| [Do Left-handed People Really Die Young?](DataCampProjects/Do%20Left-handed%20People%20Really%20Die%20Young_) | Project folder for the left-handedness case study; the checked-in dataset is the Iris dataset. | Notebook-based EDA structure, small tabular dataset exploration |
-| [Exploring the Evolution of Linux](DataCampProjects/Exploring%20the%20Evolution%20of%20Linux) | Linux git history using commit timestamps and authors. | Compressed data loading, contribution history analysis, author/activity trends |
-| [Name Game: Gender Prediction using Sound](DataCampProjects/Name%20Game_%20Gender%20Prediction%20using%20Sound) | Predicts likely gender patterns in names using SSA baby names, NYSIIS encodings, and children's book author names. | Phonetic encoding, name normalization, grouped probability features |
-| [TV, Halftime Shows, and the Big Game](DataCampProjects/TV,%20Halftime%20Shows,%20and%20the%20Big%20Game) | Super Bowl game, TV, and halftime performance data. | Multi-table EDA, sports analytics, event and media trend analysis |
-| [The Android App Market on Google Play](DataCampProjects/The%20Android%20App%20Market%20on%20Google%20Play) | Google Play app metadata and user review sentiment. | Data cleaning, category analysis, ratings/reviews exploration, sentiment polarity and subjectivity analysis |
-| [The GitHub History of the Scala Language](DataCampProjects/The%20GitHub%20History%20of%20the%20Scala%20Language) | Scala pull requests, changed files, contributors, and timeline history. | GitHub activity analysis, time series aggregation, contributor/file-level exploration |
-| [Who Is Drunk and When in Ames, Iowa?](DataCampProjects/Who%20Is%20Drunk%20and%20When%20in%20Ames,%20Iowa_) | Breath alcohol test results by date, hour, location, gender, and measurement values. | Time-based EDA, public safety analytics, grouping by hour/location/month |
+## Using the repository
 
-## NamasteSQL
+Clone the repository and open the project or course directory you want to explore:
 
-The [NamasteSQL](NamasteSQL) folder contains structured SQL learning material and solved assignments. The work progresses from SQL basics to advanced analytical querying.
+```bash
+git clone https://github.com/mayank1101/Mayank-AI-Analytics-Lab.git
+cd Mayank-AI-Analytics-Lab
+```
 
-| Module | Folder | Topics covered |
-| --- | --- | --- |
-| 1 | [Introduction to SQL, DDL, DML, and DQL](NamasteSQL/1.introduction_to_sql_ddl_dml_and_dql) | Table creation, constraints, primary keys, foreign keys, data types, inserts, updates, and basic querying |
-| 2 | [Filters, Sorting, and CASE WHEN](NamasteSQL/2.sql_filters_sorting_and_case_when) | `WHERE`, `LIKE`, date filters, `IN`, `NOT IN`, ordering, default constraints, and conditional logic |
-| 3 | [Aggregation and Joins](NamasteSQL/3.aggregation_and_joins) | `GROUP BY`, aggregate functions, profit buckets, joins, customer/order analysis |
-| 4 | [Self Join, Date/String Functions, Set Operations, and Views](NamasteSQL/4.selfjoin_date_and_string_functions_set_operations_and_view) | Self joins, manager hierarchies, date calculations, string parsing, set logic, views |
-| 5 | [Subquery, CTE, and Temporary Tables](NamasteSQL/5.subquery_cet_and_temporary_tables) | CTEs, subqueries, premium customer logic, department averages, highest-selling products |
-| 6 | [Window Functions and Recursive CTE](NamasteSQL/6.window_analytical_functions_and_recursive_cte) | Ranking, `DENSE_RANK`, `ROW_NUMBER`, top/bottom analysis, month-over-month and year-over-year growth |
-| 7 | [Advanced Aggregation, Stored Procedures, and Functions](NamasteSQL/7.advance_aggregation_stored_procedures_and_functions) | Rolling three-month sales, products with non-declining sales, business-day functions, stored procedure exercises |
-| 8 | [Portfolio Project: Credit Card Transactions](NamasteSQL/8.portfolio_project_credit_cars_transactions) | Credit card spend analysis by city, card type, month, expense type, gender contribution, and cumulative spend |
-| 9 | [Database Indexes, Advanced Update, and Merge](NamasteSQL/9.database_indexes_advance_update_and_merge) | Clustered indexes, nonclustered indexes, advanced update patterns, merge concepts |
+Most work is notebook-first. There is no repository-wide dependency file because the material spans multiple course generations and framework versions. For executable notebooks:
 
-Additional consolidated SQL material is stored in:
+1. Treat each project or course as an independent environment.
+2. Create a virtual environment in that directory.
+3. Inspect notebook imports and any local `requirements.txt` before installing packages.
+4. Run notebooks in their numbered or documented order.
 
-- [NamasteSQL/all_assignments](NamasteSQL/all_assignments): assignment prompts and reference solutions by day.
-- [NamasteSQL/all_projects](NamasteSQL/all_projects): credit card transactions portfolio questions and solution SQL.
+Some notebooks depend on external datasets, pretrained weights, API credentials, Google Colab, or Amazon SageMaker. Older work may require library versions contemporary with the original course. Review cells before execution, particularly those that download data, invoke paid APIs, or create cloud resources.
 
-## Skills Demonstrated
+## Archive notes
 
-- Python data analysis with pandas, NumPy, matplotlib, seaborn, and notebook workflows.
-- Deep learning with PyTorch, Keras, CNNs, RNNs, LSTMs, transfer learning, and image feature extraction.
-- Computer vision tasks including image captioning, facial keypoint detection, style transfer, dog breed classification, and medical image classification.
-- NLP tasks including sentiment classification, script generation, tokenization, vocabulary construction, and text cleaning.
-- Model deployment patterns using SageMaker training/serving scripts and a simple web app front end.
-- SQL analytics across joins, CTEs, window functions, stored procedures, functions, indexes, and portfolio-style business questions.
+- The repository includes notebooks, source code, SQL scripts, local datasets, exported reports, trained checkpoints, and generated output.
+- HTML and PDF exports are retained so results remain viewable when the original runtime is unavailable.
+- Large model artifacts are educational outputs and are not guaranteed to be portable across current framework versions.
+- Never add API keys, cloud credentials, or populated `.env` files to source control.
 
-## Notes
+## License
 
-- Most projects are notebook-first and include local datasets or supporting artifacts.
-- Some Udacity projects include large generated files, trained checkpoints, HTML exports, PDF exports, or submission archives.
-- The repository is intended as a learning and portfolio archive rather than a single installable Python package.
+Original code in this repository is available under the [MIT License](LICENSE). Course material, datasets, certificates, and third-party assets remain subject to the terms and licenses of their respective owners.

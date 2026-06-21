@@ -1,0 +1,102 @@
+
+1- write a query to find premium customers from orders data. Premium customers are those who have done more orders than average no of orders per customer.
+
+with no_of_orders_each_customer as (
+select customer_id,count(distinct order_id) as no_of_orders
+from orders 
+group by customer_id)
+select * from 
+no_of_orders_each_customer where no_of_orders > (select avg(no_of_orders) from no_of_orders_each_customer)
+
+2- write a query to find employees whose salary is more than average salary of employees in their department
+
+
+select e.* from employee e
+inner join (select dept_id,avg(salary) as avg_sal from employee group by dept_id)  d
+on e.dept_id=d.dept_id
+where salary>avg_sal
+
+3- write a query to find employees whose age is more than average age of all the employees.
+
+
+select * from employee 
+where emp_age > (select avg(emp_age) from employee)
+
+
+4- write a query to print emp name, salary and dep id of highest salaried employee in each department 
+
+
+select e.* from employee e
+inner join (select dept_id,max(salary) as max_sal from employee group by dept_id)  d
+on e.dept_id=d.dept_id
+where salary=max_sal
+
+5- write a query to print emp name, salary and dep id of highest salaried employee overall
+
+
+select * from employee 
+where salary = (select max(salary) from employee)
+
+
+6- write a query to print product id and total sales of highest selling products (by no of units sold) in each category
+
+with product_quantity as (
+select category,product_id,sum(quantity) as total_quantity
+from orders 
+group by category,product_id)
+,cat_max_quantity as (
+select category,max(total_quantity) as max_quantity from product_quantity 
+group by category
+)
+select *
+from product_quantity pq
+inner join cat_max_quantity cmq on pq.category=cmq.category
+where pq.total_quantity  = cmq.max_quantity
+
+
+7- Run below table script to create icc_world_cup table:
+
+create table icc_world_cup
+(
+Team_1 Varchar(20),
+Team_2 Varchar(20),
+Winner Varchar(20)
+);
+INSERT INTO icc_world_cup values('India','SL','India');
+INSERT INTO icc_world_cup values('SL','Aus','Aus');
+INSERT INTO icc_world_cup values('SA','Eng','Eng');
+INSERT INTO icc_world_cup values('Eng','NZ','NZ');
+INSERT INTO icc_world_cup values('Aus','India','India');
+
+write a query to produce below output from icc_world_cup table.
+team_name, no_of_matches_played , no_of_wins , no_of_losses
+
+with all_teams as 
+(select team_1 as team, case when team_1=winner then 1 else 0 end as win_flag from icc_world_cup
+union all
+select team_2 as team, case when team_2=winner then 1 else 0 end as win_flag from icc_world_cup)
+select team,count(1) as total_matches_played , sum(win_flag) as matches_won,count(1)-sum(win_flag) as matches_lost
+from all_teams
+group by team
+
+
+Please solve these problems. You have option to solve them in MySQL, sql server and postgres. All are free questions.
+
+1- https://www.namastesql.com/coding-problem/38-product-reviews
+2- https://www.namastesql.com/coding-problem/61-category-sales-part-1
+3- https://www.namastesql.com/coding-problem/62-category-sales-part-2
+4- https://www.namastesql.com/coding-problem/71-department-average-salary
+5- https://www.namastesql.com/coding-problem/72-product-sales
+6- https://www.namastesql.com/coding-problem/73-category-product-count
+7- https://www.namastesql.com/coding-problem/103-employee-mentor
+8- https://www.namastesql.com/coding-problem/8-library-borrowing-habits
+9- https://www.namastesql.com/coding-problem/52-loan-repayment
+10- https://www.namastesql.com/coding-problem/55-lowest-price
+ 
+
+
+
+
+
+
+

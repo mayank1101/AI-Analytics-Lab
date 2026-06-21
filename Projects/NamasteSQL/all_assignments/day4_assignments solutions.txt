@@ -1,0 +1,152 @@
+
+Run the following command to add and update dob column in employee table
+alter table  employee add dob date;
+update employee set dob = dateadd(year,-1*emp_age,getdate())
+
+1- write a query to print emp name , their manager name and diffrence in their age (in days) 
+for employees whose year of birth is before their managers year of birth
+
+select e1.emp_name,e2.emp_name as manager_name , DATEDIFF(day,e1.dob,e2.dob) as diff_in_age
+from employee e1
+inner join employee e2 on e1.manager_id=e2.emp_id
+where DATEPART(year,e1.dob)< DATEPART(year,e2.dob)
+
+
+2- write a query to find subcategories who never had any return orders in the month of november (irrespective of years)
+
+select sub_category
+from orders o
+left join returns r on o.order_id=r.order_id
+where DATEPART(month,order_date)=11
+group by sub_category
+having count(r.order_id)=0;
+
+
+3- write a query to print manager names along with the comma separated list(order by emp salary) of all employees directly reporting to him.
+
+select e2.emp_name as manager_name , string_agg(e1.emp_name,',') as emp_list
+from employee e1
+inner join employee e2 on e1.manager_id=e2.emp_id
+group by e2.emp_name
+
+
+4- write a query to get number of business days between order_date and ship_date (exclude weekends). 
+Assume that all order date and ship date are on weekdays only.
+
+select order_id,order_date,ship_date 
+,datediff(day,order_date,ship_date)-2*datediff(week,order_date,ship_date) as no_of_business_days
+from orders
+
+5- write a query to print below 3 columns
+category, total_sales_2019(sales in year 2019), total_sales_2020(sales in year 2020)
+
+select category,sum(case when datepart(year,order_date)=2019 then sales end) as total_sales_2019
+,sum(case when datepart(year,order_date)=2020 then sales end) as total_sales_2020
+from orders 
+group by category
+
+
+6- write a query print top 5 cities in west region by average no of days between order date and ship date.
+
+select top 5 city, avg(datediff(day,order_date,ship_date) ) as avg_days
+from orders
+where region='West'
+group by city
+order by avg_days desc
+
+
+7- write a query to print emp name, manager name and senior manager name (senior manager is manager's manager)
+
+select e1.emp_name,e2.emp_name as manager_name,e3.emp_name as senior_manager_name
+from employee e1
+inner join employee e2 on e1.manager_id=e2.emp_id
+inner join employee e3 on e2.manager_id=e3.emp_id
+
+
+8- write a query to print first name and last name of a customer using orders table(everything after first space can be considered as last name)
+customer_name, first_name,last_name
+
+select customer_name , trim(SUBSTRING(customer_name,1,CHARINDEX(' ',customer_name))) as first_name
+, SUBSTRING(customer_name,CHARINDEX(' ',customer_name)+1,len(customer_name)-CHARINDEX(' ',customer_name)+1) as second_name
+from orders
+
+
+9- create table drivers(id varchar(10), start_time time, end_time time, start_loc varchar(10), end_loc varchar(10));
+insert into drivers values('dri_1', '09:00', '09:30', 'a','b'),('dri_1', '09:30', '10:30', 'b','c'),('dri_1','11:00','11:30', 'd','e');
+insert into drivers values('dri_1', '12:00', '12:30', 'f','g'),('dri_1', '13:30', '14:30', 'c','h');
+insert into drivers values('dri_2', '12:15', '12:30', 'f','g'),('dri_2', '13:30', '14:30', 'c','h');
+
+write a query to print below output using drivers table. Profit rides are the no of rides where end location and end_time of a ride is same as start location ans start time of the next ride for a driver
+id, total_rides , profit_rides
+dri_1,5,1
+dri_2,2,0
+
+
+select r1.id , count(1) total_rides, count(r2.id) as profit_rides
+from drivers r1
+left join drivers r2
+on r1.id=r2.id and r1.end_loc=r2.start_loc and r1.end_time=r2.start_time
+group by r1.id
+
+
+10- write a query to print customer name and no of occurence of character 'n' in the customer name.
+customer_name , count_of_occurence_of_n
+
+select customer_name , len(customer_name)-len(replace(lower(customer_name),'n','')) as count_of_occurence_of_n
+from orders
+
+
+
+11-write a query to print below output from orders data. example output
+hierarchy type,hierarchy name ,total_sales_in_west_region,total_sales_in_east_region
+category , Technology, ,
+category, Furniture, ,
+category, Office Supplies, ,
+sub_category, Art , ,
+sub_category, Furnishings, ,
+--and so on all the category ,subcategory and ship_mode hierarchies 
+
+select 
+'category' as hierarchy_type,category as hierarchy_name
+,sum(case when region='West' then sales end) as total_sales_in_west_region
+,sum(case when region='East' then sales end) as total_sales_in_east_region
+from orders
+group by category
+union all
+select 
+'sub_category',sub_category
+,sum(case when region='West' then sales end) as total_sales_in_west_region
+,sum(case when region='East' then sales end) as total_sales_in_east_region
+from orders
+group by sub_category
+union all
+select 
+'ship_mode ',ship_mode 
+,sum(case when region='West' then sales end) as total_sales_in_west_region
+,sum(case when region='East' then sales end) as total_sales_in_east_region
+from orders
+group by ship_mode 
+
+
+12- the first 2 characters of order_id represents the country of order placed . write a query to print total no of orders placed in each country
+(an order can have 2 rows in the data when more than 1 item was purchased in the order but it should be considered as 1 order)
+
+select left(order_id,2) as country, count(distinct order_id) as total_orders
+from orders 
+group by left(order_id,2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

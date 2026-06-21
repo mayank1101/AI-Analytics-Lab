@@ -1,0 +1,46 @@
+
+1- write a sql to find top 3 products in each category by highest rolling 3 months total sales for Jan 2020.
+2- write a query to find products for which month over month sales has never declined.
+3- write a query to find month wise sales for each category for months where sales is more than the combined sales of previous 2 months for that category.
+
+4- write a user defined functions  which takes 2 input parameters of DATE data type. 
+The function should return no of business days between the 2 dates.
+note -> if any of the 2 input dates are falling on saturday or sunday then function should use immediate Monday 
+date for calculation
+
+example if we pass dates as 2024-11-30 and 2024-12-05..then it should calculate business days 
+between 2024-12-02 and 2024-12-05
+
+5- This is in continuation to the stored procedure for namastesql LMS. 
+
+we created a stored procedure sp_manage_students to manage students.
+
+Now create a courses table manually which will have course_id , course_name and insert some records.
+eg
+100, SQL
+200, Python
+300, Tableau
+
+on namaste sql you have option to buy combos as well which gives you access to multiple courses. create a table called combos which will have 2 columns combo_id , course_id and insert some data 
+eg
+combo_id , course_id
+1,100
+1,200
+2,100
+2,200
+2,300
+
+
+Next create a stored procedure to manage enrollments  : sp_manage_enrollments
+for this first create a table student_courses which will have 2 columns student_id, course_id
+
+student_id will refer to the students table created in the lecture.
+
+sp_manage_enrollments should take 3 arguments : @student_id, @course_combo_id , @iscombo_flag
+
+based on these arguments the procedure should enroll the students by making entry in student_courses table.
+
+
+
+
+ 
