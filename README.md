@@ -1,6 +1,6 @@
 # AI & Analytics Lab
 
-A portfolio and learning archive covering artificial intelligence, machine learning, deep learning, computer vision, natural language processing, data analytics, MLOps, SQL, and web search engine crawlers.
+A portfolio and learning archive covering artificial intelligence, machine learning, deep learning, computer vision, natural language processing, data analytics, MLOps, and SQL.
 
 The repository combines completed projects with the coursework, assignments, certificates, datasets, and reference material that supported them. It is organized as an archive of independent projects and notebooks rather than a single installable application.
 
@@ -10,7 +10,6 @@ The repository combines completed projects with the coursework, assignments, cer
 | --- | --- |
 | [the-aiml-playbook/](the-aiml-playbook/) | Applied portfolio work: 10 deep learning, computer vision, and NLP projects from Udacity. |
 | [the-analytics-mosaic/](the-analytics-mosaic/) | Applied portfolio work: 10 exploratory data analysis and visualization case studies from DataCamp. |
-| [stackoverflow-search-engine-project/](stackoverflow-search-engine-project/) | A full-stack search engine application built with Django and Scrapy crawlers for StackExchange sites. |
 | [Courses/](Courses/) | Course notebooks, assignments, certificates, and reference material from Coursera, DeepLearning.AI, Udacity, and DataCamp. Also includes the 9-module `NamasteSQL` learning track. See the [course catalog](Courses/README.md). |
 
 ```text
@@ -23,10 +22,6 @@ Mayank-AI-Lab/
 │   ├── datascience_Cheat_Sheets/
 │   ├── others/
 │   └── udacity/
-├── stackoverflow-search-engine-project/
-│   ├── crawlers/
-│   ├── data/
-│   └── engine/
 ├── the-aiml-playbook/
 │   ├── Project - Automatic Image Captioning/
 │   └── [9 other deep learning & NLP projects]
@@ -85,14 +80,6 @@ Located under [the-analytics-mosaic/](the-analytics-mosaic/), these Python proje
 | [The Android App Market on Google Play](the-analytics-mosaic/The%20Android%20App%20Market%20on%20Google%20Play/) | Google Play app metadata and user review sentiment. | Data cleaning, category analysis, ratings/reviews exploration, sentiment polarity and subjectivity analysis |
 | [The GitHub History of the Scala Language](the-analytics-mosaic/The%20GitHub%20History%20of%20the%20Scala%20Language/) | Scala pull requests, changed files, contributors, and timeline history. | GitHub activity analysis, time series aggregation, contributor/file-level exploration |
 | [Who Is Drunk and When in Ames, Iowa?](the-analytics-mosaic/Who%20Is%20Drunk%20and%20When%20in%20Ames,%20Iowa_/) | Breath alcohol test results by date, hour, location, gender, and measurement values. | Time-based EDA, public safety analytics, grouping by hour/location/month |
-
-### StackOverflow Search Engine Project
-
-Located under [stackoverflow-search-engine-project/](stackoverflow-search-engine-project/), this system builds a full web scraper and search engine pipeline.
-
-- [Crawlers](stackoverflow-search-engine-project/crawlers/): Web crawlers developed using Scrapy to scrape questions, answers, and tags from StackExchange sites (specifically Artificial Intelligence, askUbuntu, and Astronomy). Uses SQLAlchemy and PostgreSQL for storage.
-- [Engine](stackoverflow-search-engine-project/engine/): A Django-based web application providing a clean search interface over the crawled PostgreSQL database using fulltext search.
-
 ---
 
 ## Technical Coverage
@@ -104,7 +91,6 @@ Located under [stackoverflow-search-engine-project/](stackoverflow-search-engine
 - **NLP and generative AI:** RNNs, LSTMs, Transformers, Hugging Face libraries, LangChain, fine-tuning, and prompt engineering
 - **Deployment and MLOps:** Amazon SageMaker, Docker, MLflow, model serving, and simple web interfaces
 - **Databases:** PostgreSQL, joins, CTEs, window functions, stored procedures, functions, indexes, SQL analytics, MongoDB, and NoSQL concepts
-- **Web Scraping:** Scrapy, XPath/CSS selectors, SQLAlchemy, and crawler pipelines
 
 ---
 
